@@ -1,7 +1,6 @@
 from database.DB_connect import DBConnect
 from model.situazione import Situazione
 
-
 class MeteoDao():
 
     @staticmethod
@@ -14,7 +13,7 @@ class MeteoDao():
             cursor = cnx.cursor(dictionary=True)
             query = """SELECT s.Localita, s.Data, s.Umidita
                         FROM situazione s 
-                        ORDER BY s.Data ASC"""
+                        ORDER BY s.Localita"""
             cursor.execute(query)
             for row in cursor:
                 result.append(Situazione(row["Localita"],
